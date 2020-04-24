@@ -105,8 +105,10 @@ wsServer.on('request', request => {
         Math.random(), 
         Math.random()
       ].map(n => "qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890"[Math.floor(n*62)]).join('')
+      console.log("waiting for someone to join", roomId);
       waitingPool.push(roomId);
     } else {
+      console.log("joining waiting room", roomId);
       roomId = waitingPool.shift();
     }
   }

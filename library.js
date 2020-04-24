@@ -1,7 +1,7 @@
 (function() {
   let socket = null;
   
-  let tp = window.twoplayer = {
+  let tp = window.TwoPlayer = {
     status: 'disconnected',
     id: new URLSearchParams(window.location.search).get("roomId") || null,
     send: function(data) {
