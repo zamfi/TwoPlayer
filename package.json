@@ -1,0 +1,15 @@
+{
+  "name": "twoplayer",
+  "version": "1.0.0",
+  "description": "A server for two-player browser-based games.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "J.D. Zamfirescu <zamfire@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "mime": "^2.4.4",
+    "websocket": "^1.0.31"
+  }
+}
