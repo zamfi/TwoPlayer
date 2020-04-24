@@ -108,8 +108,8 @@ wsServer.on('request', request => {
       console.log("waiting for someone to join", roomId);
       waitingPool.push(roomId);
     } else {
-      console.log("joining waiting room", roomId);
       roomId = waitingPool.shift();
+      console.log("joining waiting room", roomId);
     }
   }
   if (! connections[roomId]) {

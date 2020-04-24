@@ -24,9 +24,12 @@ function setup() {
   TwoPlayer.ondata = function(message) {
     if (message == 'x') {
       whoAmI = 'o';
+      next = 'x'
       TwoPlayer.send("o");
+      document.getElementById('message').innerText = "Connected!"
     } else if (message == 'o') {
       whoAmI = 'x';
+      next = 'x'
       document.getElementById('message').innerText = "Connected!"
     } else {
       let data = JSON.parse(message);
@@ -55,13 +58,23 @@ function draw() {
       pop();
     }
   }
+
+  textAlign(CENTER, BOTTOM)
+  if (next == whoAmI) {
+    text("YOUR TURN, "+next.toLocaleUpperCase(), width/2, height-10);
+  } else {
+    text("WAITING FOR "+next.toLocaleUpperCase(), width/2, height-10);
+  }
 }
 
-var next = 'x';
+var next = '?';
 function mousePressed() {
   if (next == whoAmI) {
     let r = floor(mouseX/(width/3));
     let c = floor(mouseY/(height/3));
+    if (ttt[r][c] != 0) {
+      return;
+    }
     ttt[r][c] = next;
     next = next == 'x' ? 'o' : 'x';
     TwoPlayer.send(JSON.stringify({
